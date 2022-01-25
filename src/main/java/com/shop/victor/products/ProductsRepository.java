@@ -13,7 +13,7 @@ public interface ProductsRepository extends JpaRepository<Products, Long> {
 
       Page<Products> findAllByCategory(Pageable var1,String category);
 
-      Page<Products> findByDescriptionContainsAndNameContains(Pageable var1,String search);
+      Page<Products> findByDescriptionOrNameContains(Pageable var1,String search);
 
 
 }
