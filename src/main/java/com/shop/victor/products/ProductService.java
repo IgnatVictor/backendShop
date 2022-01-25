@@ -32,7 +32,7 @@ public class ProductService {
     }
 
     public Page<Products> searchProductsWithPaginationAndCategory(int offset,int pageSize, String search) {
-        Page<Products> products = productsRepository.findByDescriptionContains(PageRequest.of(offset, pageSize),search);
+        Page<Products> products = productsRepository.findByDescriptionContainsAndNameContains(PageRequest.of(offset, pageSize),search);
         return products;
     }
 
