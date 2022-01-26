@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 
-@EnableJdbcHttpSession
+
 @SpringBootApplication
 public class SpringBootSecurityJwtApplication {
 
