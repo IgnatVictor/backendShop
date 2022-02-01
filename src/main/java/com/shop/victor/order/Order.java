@@ -1,11 +1,14 @@
 package com.shop.victor.order;
+import com.shop.victor.products.Products;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 
 @Getter
@@ -21,10 +24,18 @@ public class Order {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long order_id;
 
-    private String order;
+    private LocalDate localDate= LocalDate.now();
+    private int totalSum;
+    private int user_id;
 
-    public Order( String order) {
+
+    @OneToMany
+    private List<Products> order;
+
+    public Order( List<Products> order, int totalSum, int user_id) {
+        this.totalSum = totalSum;
         this.order = order;
+        this.user_id= user_id;
     }
 
     @Override

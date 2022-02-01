@@ -23,6 +23,7 @@ public class Products {
     private String image;
     private String category;
     private int quantity;
+    private int qty;
 
 
 

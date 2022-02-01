@@ -12,7 +12,11 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public List<Order> orders () {
-        return orderRepository.findAll();
+    public List<Order> FindOrders(int user_id) {
+        return orderRepository.findAllByUser_id(user_id);
+    }
+
+    public void addOrder(Order order) {
+        orderRepository.save(order);
     }
 }
