@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/order")
 public class OrderController {
 
-
+        private OrderService orderService;
 
 
 //    @GetMapping("/")
