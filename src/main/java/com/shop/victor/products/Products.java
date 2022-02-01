@@ -26,7 +26,7 @@ public class Products {
     private int quantity;
     private int qty;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Order order;
 
 
