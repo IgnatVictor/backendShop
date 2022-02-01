@@ -23,10 +23,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long order_id;
-
-    private LocalDate localDate= LocalDate.now();
     private int totalSum;
     private int user_id;
+    private LocalDate localDate= LocalDate.now();
+
 
 
     @OneToMany
