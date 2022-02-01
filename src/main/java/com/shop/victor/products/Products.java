@@ -1,6 +1,7 @@
 package com.shop.victor.products;
 
 
+import com.shop.victor.order.Order;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,6 +25,9 @@ public class Products {
     private String category;
     private int quantity;
     private int qty;
+
+    @ManyToOne
+    private Order order;
 
 
 
