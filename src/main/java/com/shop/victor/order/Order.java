@@ -29,7 +29,7 @@ public class Order {
 
 
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Order")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "Orders")
     private List<Products> order;
 
     public Order( List<Products> order, int totalSum, int user_id) {
