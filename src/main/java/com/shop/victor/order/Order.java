@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -16,6 +17,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Order")
 public class Order {
 
 
@@ -29,8 +31,8 @@ public class Order {
 
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Order")
-    private List<Products> order;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true)
+    private List<Products> order =new ArrayList<>();
 
     public Order( List<Products> order, int totalSum, int user_id) {
         this.totalSum = totalSum;
