@@ -1,6 +1,7 @@
 package com.shop.victor.products;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.shop.victor.order.Order;
 import lombok.*;
 
@@ -26,7 +27,8 @@ public class Products {
     private int quantity;
     private int qty;
 
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     private Order order;
 
 
