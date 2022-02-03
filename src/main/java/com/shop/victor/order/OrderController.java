@@ -16,15 +16,15 @@ public class OrderController {
         private OrderService orderService;
 
 
-//    @GetMapping("/getOrders")
-//    public List<Order> getOrders(@RequestParam( name = "user_id",required = true) int user_id ) {
-//        return orderService.FindOrders(user_id);
-//    }
-//
-//    @PostMapping("/add")
-//    public void addOrder(@RequestBody List<Products> products, @RequestParam(name = "sum", required = true) int sum,@RequestParam(name="user_id",required = true) int user_id)
-//    {
-//        Order order= new Order(products,sum,user_id);
-//        orderService.addOrder(order);
-//    }
+    @GetMapping("/getOrders")
+    public List<Order> getOrders(@RequestParam( name = "user_id",required = true) int user_id ) {
+        return orderService.FindOrders(user_id);
+    }
+
+    @PostMapping("/add")
+    public void addOrder(@RequestBody List<Products> products, @RequestParam(name = "sum", required = true) int sum,@RequestParam(name="user_id",required = true) int user_id)
+    {
+        Order order= new Order(products,sum,user_id);
+        orderService.addOrder(order);
+    }
 }

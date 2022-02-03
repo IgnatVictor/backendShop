@@ -1,15 +1,10 @@
 package com.shop.victor.order;
 import com.shop.victor.products.Products;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 
 @Getter
@@ -17,6 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "orders")
 public class Order {
 
 
@@ -25,18 +21,19 @@ public class Order {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long order_id;
     private int totalSum;
-    private int user_id;
+    private int userId;
     private LocalDate localDate= LocalDate.now();
 
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "order", orphanRemoval = true)
-    private List<Products> order =new ArrayList<>();
+    @ManyToMany(targetEntity = Products.class,cascade = CascadeType.ALL)
+    @JoinColumn(name="order",referencedColumnName = "order_id")
+    private List<Products> order ;
 
-    public Order( List<Products> order, int totalSum, int user_id) {
+    public Order(List<Products> order, int totalSum, int userId) {
         this.totalSum = totalSum;
-        this.order = order;
-        this.user_id= user_id;
+        this.order =  order;
+        this.userId = userId;
     }
 
     @Override

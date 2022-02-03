@@ -1,11 +1,11 @@
 package com.shop.victor.products;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.shop.victor.order.Order;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @ToString
 @Setter
@@ -27,9 +27,10 @@ public class Products {
     private int quantity;
     private int qty;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnore
-    private Order order;
+    @ManyToMany(targetEntity = Order.class,cascade = CascadeType.ALL)
+    @JoinColumn(name="product_id",referencedColumnName = "id")
+    private List<Products> order ;
+
 
 
 
@@ -45,7 +46,26 @@ public class Products {
     }
 
 
+    @ManyToOne(optional = false)
+    private Order orderrs;
 
+    public Order getOrderrs() {
+        return orderrs;
+    }
 
+    public void setOrderrs(Order orderrs) {
+        this.orderrs = orderrs;
+    }
+
+    @ManyToOne(optional = false)
+    private Order orders;
+
+    public Order getOrders() {
+        return orders;
+    }
+
+    public void setOrders(Order orders) {
+        this.orders = orders;
+    }
 }
 
