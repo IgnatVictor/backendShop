@@ -16,6 +16,7 @@ public class ProfileService {
             profileRepository.save(profile);
         } else {
             profileRepository.findByUserId(profile.getUserId()).setCountry(profile.getName());
+            profileRepository.findByUserId(profile.getUserId()).setSunName(profile.getSunName());
             profileRepository.findByUserId(profile.getUserId()).setPhoneNumber(profile.getPhoneNumber());
             profileRepository.findByUserId(profile.getUserId()).setAdress1(profile.getAdress1());
             profileRepository.findByUserId(profile.getUserId()).setAdress2(profile.getAdress2());

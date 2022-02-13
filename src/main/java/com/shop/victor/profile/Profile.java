@@ -17,6 +17,7 @@ public class Profile {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String name;
+    private String sunName;
     private Integer phoneNumber;
     private String adress1;
     private String adress2;
