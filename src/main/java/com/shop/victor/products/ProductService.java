@@ -21,6 +21,7 @@ public class ProductService {
         return productsRepository.findAll();
     }
 
+
     public Page<Products> findProductsWithPagination(int offset,int pageSize){
         Page<Products> products = productsRepository.findAll(PageRequest.of(offset, pageSize));
         return  products;
