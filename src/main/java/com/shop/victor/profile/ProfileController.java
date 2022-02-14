@@ -19,8 +19,9 @@ public class ProfileController {
     }
 
     @GetMapping("/getProfile")
-    public Profile getProfile(@RequestParam(name="userId", required = true) Integer userId) {
-        return profileService.getProfile(userId);
+    public Profile getProfile(@RequestParam(name="userId", required = true) String userId) {
+        Integer userID = Integer.parseInt(userId);
+        return profileService.getProfile(userID);
     }
 
 }
