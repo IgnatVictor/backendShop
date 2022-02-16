@@ -18,7 +18,7 @@ public class ProfileController {
         profileService.UpdateProfile(profile);
     }
 
-    @GetMapping("/getProfile")
+    @PostMapping("/getProfile")
     public Profile getProfile(@RequestParam(name="userId", required = true) String userId) {
         Integer userID = Integer.parseInt(userId);
         return profileService.getProfile(userID);
