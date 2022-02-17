@@ -3,7 +3,7 @@ package com.shop.victor.profile;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
+
 
 @ToString
 @Setter
@@ -24,15 +24,17 @@ public class Profile {
     private Integer postcode;
     private String state;
     private String pictureLink;
-    private String username;
-    private String email;
+    private String userUser;
+    private String userEmail;
     private String country;
     private Integer userId;
 
     public Profile(String username, String email, Integer userId) {
-        this.username = username;
-        this.email = email;
+        this.userUser = username;
+        this.userEmail = email;
         this.userId = userId;
     }
+
+
 
 }
