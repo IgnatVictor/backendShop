@@ -24,14 +24,14 @@ public class Profile {
     private Integer postcode;
     private String state;
     private String pictureLink;
-    private String userUser;
-    private String userEmail;
+    private String username;
+    private String email;
     private String country;
     private Integer userId;
 
     public Profile(String username, String email, Integer userId) {
-        this.userUser = username;
-        this.userEmail = email;
+        this.username = username;
+        this.email = email;
         this.userId = userId;
     }
 

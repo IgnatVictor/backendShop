@@ -24,8 +24,8 @@ public class ProfileService {
             profileRepository.findByUserId(profile.getUserId()).setPostcode(profile.getPostcode());
             profileRepository.findByUserId(profile.getUserId()).setState(profile.getState());
             profileRepository.findByUserId(profile.getUserId()).setPictureLink(profile.getPictureLink());
-            profileRepository.findByUserId(profile.getUserId()).setUserUser(profile.getUserUser());
-            profileRepository.findByUserId(profile.getUserId()).setUserEmail(profile.getUserEmail());
+            profileRepository.findByUserId(profile.getUserId()).setUsername(profile.getUsername());
+            profileRepository.findByUserId(profile.getUserId()).setEmail(profile.getEmail());
             profileRepository.findByUserId(profile.getUserId()).setCountry(profile.getCountry());
         }
 
