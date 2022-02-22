@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "profile")
 public class Profile {
 
     @Id
@@ -27,7 +27,11 @@ public class Profile {
     private String username;
     private String email;
     private String country;
+
+    @Column(name = "user_id")
     private Integer userId;
+
+
 
     public Profile(String username, String email, Integer userId) {
         this.username = username;

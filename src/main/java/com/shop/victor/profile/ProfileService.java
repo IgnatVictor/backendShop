@@ -11,22 +11,48 @@ public class ProfileService {
     ProfileRepository profileRepository;
 
     public void UpdateProfile(Profile profile) {
-        if (profileRepository.findByUserId(profile.getUserId()) == null) {
+
+        if (profileRepository.getProfileByUserId(profile.getUserId()) == null) {
+
             profileRepository.save(profile);
         } else {
             System.out.println(profile.toString());
+            Profile profileModified = profileRepository.getProfileByUserId(profile.getUserId());
+            if(profile.getName() != "") {
+                profileModified.setName(profile.getName());
+            }
+            if(profile.getSunName() != "") {
+                profileModified.setSunName(profile.getSunName());
+            }
+            if(profile.getPhoneNumber() != null) {
+                profileModified.setPhoneNumber(profile.getPhoneNumber());
+            }
+            if(profile.getAdress1() != "") {
+                profileModified.setAdress1(profile.getAdress1());
+            }
+            if(profile.getAdress2() != "") {
+                profileModified.setAdress2(profile.getAdress2());
+            }
+            if(profile.getPostcode() != null) {
+                profileModified.setPostcode(profile.getPostcode());
+            }
+            if(profile.getState() != "") {
+                profileModified.setState(profile.getState());
+            }
+            if(profile.getPictureLink() != "") {
+                profileModified.setPictureLink(profile.getPictureLink());
+            }
+            if(profile.getUsername() != "") {
+                profileModified.setUsername(profile.getUsername());
+            }
+            if(profile.getEmail() != "") {
+                profileModified.setEmail(profile.getEmail());
+            }
+            if(profile.getCountry() != "") {
+                profileModified.setCountry(profile.getCountry());
+            }
 
-            profileRepository.findByUserId(profile.getUserId()).setCountry(profile.getName());
-            profileRepository.findByUserId(profile.getUserId()).setSunName(profile.getSunName());
-            profileRepository.findByUserId(profile.getUserId()).setPhoneNumber(profile.getPhoneNumber());
-            profileRepository.findByUserId(profile.getUserId()).setAdress1(profile.getAdress1());
-            profileRepository.findByUserId(profile.getUserId()).setAdress2(profile.getAdress2());
-            profileRepository.findByUserId(profile.getUserId()).setPostcode(profile.getPostcode());
-            profileRepository.findByUserId(profile.getUserId()).setState(profile.getState());
-            profileRepository.findByUserId(profile.getUserId()).setPictureLink(profile.getPictureLink());
-            profileRepository.findByUserId(profile.getUserId()).setUsername(profile.getUsername());
-            profileRepository.findByUserId(profile.getUserId()).setEmail(profile.getEmail());
-            profileRepository.findByUserId(profile.getUserId()).setCountry(profile.getCountry());
+            profileRepository.save(profileModified);
         }
 
 
@@ -35,7 +61,8 @@ public class ProfileService {
     }
 
     public Profile getProfile(Integer userId) {
-        return profileRepository.findByUserId(userId);
+
+        return profileRepository.getProfileByUserId(userId);
     }
 
 }
