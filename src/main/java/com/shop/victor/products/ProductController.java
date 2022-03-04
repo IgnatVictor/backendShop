@@ -21,7 +21,7 @@ public class ProductController {
     }
 
     @GetMapping("/category")
-    public Page<Products> getCategory(@RequestParam(name = "page", required = true) int page, @RequestParam(name = "limit", required = true) int limit,@RequestParam(name = "category", required = true) String category) {
+    public Page<Products> getCategory(@RequestParam(name = "page", required = true) int page, @RequestParam(name = "limit", required = true) int limit, @RequestParam(name = "category", required = true) String category) {
         if(category.equals("all")) {
             return productService.findProductsWithPagination(page, limit);
         }
@@ -29,7 +29,7 @@ public class ProductController {
     }
 
     @GetMapping("/search")
-    public  Page<Products> getSearch(@RequestParam(name = "page", required = true) int page, @RequestParam(name = "limit", required = true) int limit,@RequestParam(name = "search", required = true) String search) {
+    public  Page<Products> getSearch(@RequestParam(name = "page", required = true) int page, @RequestParam(name = "limit", required = true) int limit, @RequestParam(name = "search", required = true) String search) {
         if(search.equals("all")) {
             return productService.findProductsWithPagination(page, limit);
         }
