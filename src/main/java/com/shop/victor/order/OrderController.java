@@ -30,9 +30,6 @@ public class OrderController {
     @PostMapping("/add")
     public  void addOrder(@RequestBody Order products)
     {
-
-
-        System.out.println(products.toString());
         orderService.addOrder(products);
         List<Products> proba = new ArrayList<>();
 

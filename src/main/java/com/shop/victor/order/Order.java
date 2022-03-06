@@ -35,17 +35,17 @@ public class Order {
     private List<OrderItem> orderItems;
 
 
-
-
     @Override
     public String toString() {
         return "Order{" +
-
                 "order_id=" + order_id +
-                ", order='" +  + '\'' +
+                ", totalSum=" + totalSum +
+                ", userId=" + userId +
+                ", localDate=" + localDate +
+                ", orderItems=" + orderItems +
                 '}';
     }
-
-
-
 }
+
+
+

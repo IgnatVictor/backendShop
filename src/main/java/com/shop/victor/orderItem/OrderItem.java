@@ -26,7 +26,7 @@ public class OrderItem {
 
 
 
-    private @NotNull int quantity;
+    private @NotNull int qty;
 
 
     private @NotNull double price;
@@ -44,7 +44,7 @@ public class OrderItem {
 //    @JoinColumn(name = "order_id", referencedColumnName = "id")
 //    private Order order;
 //
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "products_id", referencedColumnName = "id")
     private Products product;
 

@@ -3,6 +3,7 @@ package com.shop.victor.order;
 
 import com.shop.victor.orderItem.OrderItem;
 import com.shop.victor.orderItem.OrderItemsRepository;
+import com.shop.victor.products.Products;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,12 +30,16 @@ public class OrderService {
         orderRepository.save(order);
         List<OrderItem> items= order.getOrderItems();
         for(OrderItem item: items) {
+
+            Products product = new Products();
+            product.setId(Long.valueOf(Integer.valueOf(item.getId())));
             OrderItem orderItem = new OrderItem();
             orderItem.setCreatedDate(new Date());
             orderItem.setPrice(item.getPrice());
-            orderItem.setProduct(item.getProduct());
-            orderItem.setQuantity(item.getQuantity());
-            orderItem.setOrders(new Order());
+            orderItem.setProduct(product);
+
+            orderItem.setQty(item.getQty());
+            orderItem.setOrders(order);
 
             orderItemsRepository.save(orderItem);
         }

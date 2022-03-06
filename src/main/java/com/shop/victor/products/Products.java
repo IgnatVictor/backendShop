@@ -33,7 +33,8 @@ public class Products {
 //    private List<Products> order ;
 
 
-
+    @OneToOne(mappedBy = "product")
+    private OrderItem orderItem;
 
 
 
