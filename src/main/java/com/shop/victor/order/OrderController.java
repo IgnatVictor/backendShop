@@ -2,6 +2,7 @@ package com.shop.victor.order;
 
 import com.shop.victor.products.Products;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 @AllArgsConstructor
@@ -19,23 +20,22 @@ import java.util.List;
 @RequestMapping("/api/order")
 public class OrderController {
 
+
         private OrderService orderService;
 
 
-    @GetMapping("/getOrders")
-    public List<Order> getOrders(@RequestParam( name = "user_id",required = true) int user_id ) {
-        return orderService.FindOrders(user_id);
+    @PostMapping("/getOrders")
+    public List<Order> getOrders(@RequestParam( name = "userId",required = true) String userId ) {
+        return orderService.FindOrders(userId);
     }
 
     @PostMapping("/add")
     public  void addOrder(@RequestBody Order products)
     {
+        System.out.println(products);
         orderService.addOrder(products);
-        List<Products> proba = new ArrayList<>();
 
-//
-//        Order order= new Order(proba,sum,user_id);
-//        orderService.addOrder(order);
+
 
     }
 }

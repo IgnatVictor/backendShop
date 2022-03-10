@@ -28,18 +28,5 @@ public class Products {
     private int quantity;
     private int qty;
 
-//    @ManyToMany(targetEntity = Order.class,cascade = CascadeType.ALL)
-//    @JoinColumn(name="product_id",referencedColumnName = "id")
-//    private List<Products> order ;
-
-
-//    @OneToOne(mappedBy = "product")
-//    private OrderItem orderItem;
-
-
-
-
-
-
 }
 

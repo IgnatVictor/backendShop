@@ -1,4 +1,6 @@
 package com.shop.victor.order;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shop.victor.orderItem.OrderItem;
 import com.shop.victor.products.Products;
 import lombok.*;
@@ -26,11 +28,7 @@ public class Order {
     private LocalDate localDate= LocalDate.now();
 
 
-
-//    @ManyToMany(targetEntity = Products.class,cascade = CascadeType.ALL)
-//    @JoinColumn(name="order",referencedColumnName = "order_id")
-//    private List<Products> order ;
-
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @OneToMany(mappedBy = "orders", fetch = FetchType.LAZY)
     private List<OrderItem> orderItems;
 

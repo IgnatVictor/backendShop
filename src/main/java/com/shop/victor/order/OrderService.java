@@ -22,22 +22,21 @@ public class OrderService {
     @Autowired
     private OrderItemsRepository orderItemsRepository;
 
-    public List<Order> FindOrders(int user_id) {
-        return orderRepository.findAllByUserId(user_id);
+    public List<Order> FindOrders(String user_id) {
+        int userId= Integer.parseInt(user_id);
+        return orderRepository.findOrdersByUserId(userId);
     }
 
     public void addOrder(Order order) {
         orderRepository.save(order);
         List<OrderItem> items= order.getOrderItems();
         for(OrderItem item: items) {
-
             Products product = new Products();
-            product.setId(Long.valueOf(Integer.valueOf(item.getId())));
+            product.setId(Long.valueOf(item.getId()));
             OrderItem orderItem = new OrderItem();
             orderItem.setCreatedDate(new Date());
             orderItem.setPrice(item.getPrice());
             orderItem.setProduct(product);
-
             orderItem.setQty(item.getQty());
             orderItem.setOrders(order);
 
