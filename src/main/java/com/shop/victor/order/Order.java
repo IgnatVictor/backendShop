@@ -1,8 +1,6 @@
 package com.shop.victor.order;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shop.victor.orderItem.OrderItem;
-import com.shop.victor.products.Products;
 import lombok.*;
 
 import javax.persistence.*;

@@ -1,6 +1,8 @@
 package com.shop.victor.orderItem;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.shop.victor.order.Order;
 import com.shop.victor.products.Products;
 import lombok.AllArgsConstructor;
@@ -17,7 +19,7 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @Entity
-@Table(name = "orderItems")
+@Table(name = "order_items")
 public class OrderItem {
 
     @Id
@@ -35,16 +37,13 @@ public class OrderItem {
 
     private Date createdDate;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     @ManyToOne
     @JoinColumn(name = "orders_id", referencedColumnName = "order_id")
     private Order orders;
 
-//    @ManyToOne
-//    @JsonIgnore
-//    @JoinColumn(name = "order_id", referencedColumnName = "id")
-//    private Order order;
-//
-    @OneToOne(fetch = FetchType.LAZY)
+
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "products_id", referencedColumnName = "id")
     private Products product;
 
