@@ -37,8 +37,8 @@ public class OrderItem {
 
     private Date createdDate;
 
-    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
-    @ManyToOne
+//    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @ManyToOne (fetch = FetchType.EAGER)
     @JoinColumn(name = "orders_id", referencedColumnName = "order_id")
     private Order orders;
 
